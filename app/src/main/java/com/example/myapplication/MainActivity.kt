@@ -26,6 +26,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -39,8 +40,10 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.myapplication.ui.theme.darkGray
 import com.example.myapplication.ui.theme.gray
 import com.example.myapplication.ui.theme.green
+import com.example.myapplication.ui.theme.purple
 import com.example.myapplication.ui.theme.redOrange
 import com.example.myapplication.ui.theme.white
 import kotlinx.coroutines.launch
@@ -58,7 +61,7 @@ class MainActivity : ComponentActivity() {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(gray),
+                    .background(darkGray),
                 contentAlignment = Alignment.TopCenter
             ){
                 Calendar(
@@ -254,7 +257,7 @@ fun Calendar(
             }
 
             drawRoundRect(
-                redOrange,
+                gray,
                 cornerRadius = CornerRadius(25f, 25f),
                 style = Stroke(
                     width = strokeWidth
@@ -263,7 +266,7 @@ fun Calendar(
 
             for (i in 1 until CALENDAR_ROWS) {
                 drawLine(
-                    color = redOrange,
+                    color = gray,
                     start = Offset(0f, ySteps * i),
                     end = Offset(canvasWidth, ySteps * i),
                     strokeWidth = strokeWidth
@@ -271,7 +274,7 @@ fun Calendar(
             }
             for (i in 1 until CALENDAR_COLUMNS) {
                 drawLine(
-                    color = redOrange,
+                    color = gray,
                     start = Offset(xSteps * i, 0f),
                     end = Offset(xSteps * i, canvasHeight),
                     strokeWidth = strokeWidth
